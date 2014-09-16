@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="app_name">ArrowLogger</string>
+  <string name="hello_world">Hello ArrowLogger world!</string>
+  <string name="print_log_out">Log out!</string>
+  <string name="input_hint">Type Here</string>
+
+</resources>
