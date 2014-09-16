@@ -7,6 +7,7 @@ class ArrowMessageWrapper implements MessageWrapper {
 
     // TODO add multiple arrows along the row
     // TODO encase the text in a line of equals signs
+    // TODO center the text on the line (account for text length)
 
     private static final String LINE_START = "`";
     private static final String L = "\\";
