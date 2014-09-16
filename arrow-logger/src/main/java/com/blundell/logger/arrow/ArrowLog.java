@@ -9,8 +9,8 @@ public class ArrowLog {
     }
 
     public static void log(String tag, String msg) {
-        AlertLog alertLog = new AlertLog(new ArrowMessageWrapper(), new LogCatPrinter(tag));
-        alertLog.log(msg);
+        AlertPrinter alertPrinter = new AlertPrinter(new ArrowMessageWrapper(), new LogCatPrinter(tag));
+        alertPrinter.print(msg);
     }
 
 }
