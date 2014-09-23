@@ -38,11 +38,11 @@ class ArrowMessageWrapper implements MessageWrapper {
 
         String maxSpace = calculateMaxSpaceInArrowHead();
 
-        logs.addAll(calculateTopArrowHead(maxSpace));
+        logs.addAll(calculateTopArrows(maxSpace));
         logs.addAll(calculateBorder(msg));
         logs.addAll(calculateCenteredMessage(msg, maxSpace));
         logs.addAll(calculateBorder(msg));
-        logs.addAll(calculateBottomArrowHead(maxSpace));
+        logs.addAll(calculateBottomArrows(maxSpace));
 
         return logs;
     }
@@ -65,7 +65,7 @@ class ArrowMessageWrapper implements MessageWrapper {
         return maxSpace;
     }
 
-    private List<String> calculateTopArrowHead(String maxSpace) {
+    private List<String> calculateTopArrows(String maxSpace) {
         List<String> logs = new ArrayList<String>();
         String topMiddleSpacer = maxSpace + maxSpace;
         String topOutsideSpace = "";
@@ -91,7 +91,7 @@ class ArrowMessageWrapper implements MessageWrapper {
         return logs;
     }
 
-    private List<String> calculateBottomArrowHead(String maxSpace) {
+    private List<String> calculateBottomArrows(String maxSpace) {
         List<String> logs = new ArrayList<String>();
         String bottomOutsideSpacer = maxSpace;
         String bottomMiddleSpace = "";
