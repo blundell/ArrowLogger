@@ -39,9 +39,9 @@ class ArrowMessageWrapper implements MessageWrapper {
         String maxSpace = calculateMaxSpaceInArrow();
 
         logs.addAll(calculateTopArrows(maxSpace));
-        logs.addAll(calculateBorder(msg));
+        logs.addAll(calculateBorder(msg, maxSpace));
         logs.addAll(calculateCenteredMessage(msg, maxSpace));
-        logs.addAll(calculateBorder(msg));
+        logs.addAll(calculateBorder(msg, maxSpace));
         logs.addAll(calculateBottomArrows(maxSpace));
 
         return logs;
@@ -77,10 +77,10 @@ class ArrowMessageWrapper implements MessageWrapper {
         return multipleArrowsChuck;
     }
 
-    private List<String> calculateBorder(String msg) {
+    private List<String> calculateBorder(String msg, String maxSpace) {
         List<String> logs = new ArrayList<String>();
-        StringBuilder border = new StringBuilder(msg.length());
-        for (int i = 0; i < msg.length(); i++) {
+        StringBuilder border = new StringBuilder(((maxSpace.length() + 2) * 2) * width);
+        for (int i = 0; i < border.capacity(); i++) {
             border.append('=');
         }
         logs.add(LINE_START + border.toString());

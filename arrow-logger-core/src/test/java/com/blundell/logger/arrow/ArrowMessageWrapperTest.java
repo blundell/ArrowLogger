@@ -11,7 +11,7 @@ public class ArrowMessageWrapperTest {
     @Test
     public void testSimpleWrap() throws Exception {
         MessageWrapper wrapper = new ArrowMessageWrapper(7, 5);
-        List<String> test = wrapper.wrap("test test test test test");
+        List<String> test = wrapper.wrap("test sentence is this long");
 
         new DebugPrinter().print(test);
 
