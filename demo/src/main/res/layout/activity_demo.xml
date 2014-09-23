@@ -29,11 +29,46 @@
     android:text="@string/print_log_out"
     android:layout_marginTop="29dp" />
 
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="2dip"
+    android:background="@android:color/black"
+    android:layout_marginTop="15dip"
+    android:layout_marginBottom="15dip" />
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="@string/input_title_width" />
+
+  <EditText
+    android:id="@+id/prop_log_width_edit_text"
+    android:layout_width="100dip"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:inputType="number"
+    android:text="@string/input_hint_width" />
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="@string/input_title_height" />
+
+  <EditText
+    android:id="@+id/prop_log_height_edit_text"
+    android:layout_width="100dip"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:inputType="number"
+    android:text="@string/input_hint_height" />
+
   <Button
     android:id="@+id/print_pro_log_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="@string/print_log_out"
+    android:text="@string/print_pro_log_out"
     android:layout_marginTop="29dp" />
 
 </LinearLayout>
