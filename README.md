@@ -22,7 +22,9 @@ A logger for printing things like:
 
 ###Useage
 
-`ArrowLog.log("Test");`
+```java
+ArrowLog.log("Test");
+```
 
 or for more control
 
