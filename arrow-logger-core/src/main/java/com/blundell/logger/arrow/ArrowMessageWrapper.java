@@ -5,16 +5,36 @@ import java.util.List;
 
 class ArrowMessageWrapper implements MessageWrapper {
 
+    private static final int DEFAULT = -1;
+    private static final int DEFAULT_HEIGHT = 5;
+    private static final int DEFAULT_WIDTH = 7;
+
     private static final String LINE_START = "`";
     private static final String L = "\\";
     private static final String R = "/";
     private static final String SPACER = " ";
-    private static final int DEPTH = 5;
-    private static final int LENGTH = 7;
+
+    private final int height;
+    private final int width;
+
+    static MessageWrapper newInstance() {
+        return newInstance(DEFAULT, DEFAULT);
+    }
+
+    static MessageWrapper newInstance(int width, int height) {
+        int checkedHeight = height == DEFAULT ? DEFAULT_HEIGHT : height;
+        int checkedWidth = width == DEFAULT ? DEFAULT_WIDTH : width;
+        return new ArrowMessageWrapper(checkedHeight, checkedWidth);
+    }
+
+    ArrowMessageWrapper(int height, int width) {
+        this.height = height;
+        this.width = width;
+    }
 
     @Override
     public List<String> wrap(String msg) {
-        List<String> logs = new ArrayList<String>(DEPTH * 2 + 1);
+        List<String> logs = new ArrayList<String>(height * 2 + 1);
 
         String maxSpace = calculateMaxSpaceInArrowHead();
 
@@ -39,7 +59,7 @@ class ArrowMessageWrapper implements MessageWrapper {
 
     private String calculateMaxSpaceInArrowHead() {
         String maxSpace = "";
-        for (int i = 0; i < DEPTH; i++) {
+        for (int i = 0; i < height; i++) {
             maxSpace = maxSpace + SPACER;
         }
         return maxSpace;
@@ -49,7 +69,7 @@ class ArrowMessageWrapper implements MessageWrapper {
         List<String> logs = new ArrayList<String>();
         String topMiddleSpacer = maxSpace + maxSpace;
         String topOutsideSpace = "";
-        for (int x = 0; x < DEPTH; x++) {
+        for (int x = 0; x < height; x++) {
             topOutsideSpace = topOutsideSpace + SPACER;
             topMiddleSpacer = topMiddleSpacer.replaceFirst(SPACER + SPACER, "");
             String arrowChunk = topOutsideSpace + L + topMiddleSpacer + R + topOutsideSpace;
@@ -60,7 +80,11 @@ class ArrowMessageWrapper implements MessageWrapper {
     }
 
     private List<String> calculateCenteredMessage(String msg, String maxSpace) {
-        String msgCenterer = maxSpace.replaceFirst(maxSpace.substring(0, maxSpace.length() / 2), "");
+        int halfTheSpace = ((maxSpace.length() + 2) * width) - (msg.length() / 2);
+        String msgCenterer = "";
+        for (int i = 0; i < halfTheSpace; i++) {
+            msgCenterer = msgCenterer + " ";
+        }
 
         List<String> logs = new ArrayList<String>();
         logs.add(LINE_START + msgCenterer + msg);
@@ -71,7 +95,7 @@ class ArrowMessageWrapper implements MessageWrapper {
         List<String> logs = new ArrayList<String>();
         String bottomOutsideSpacer = maxSpace;
         String bottomMiddleSpace = "";
-        for (int x = 0; x < DEPTH; x++) {
+        for (int x = 0; x < height; x++) {
             String arrowChunk = bottomOutsideSpacer + R + bottomMiddleSpace + L + bottomOutsideSpacer;
             String multipleArrowsChuck = getArrowChunksForRow(arrowChunk);
             logs.add(LINE_START + multipleArrowsChuck);
@@ -83,7 +107,7 @@ class ArrowMessageWrapper implements MessageWrapper {
 
     private String getArrowChunksForRow(String arrowChunk) {
         String multipleArrowsChuck = arrowChunk;
-        for (int y = 0; y < LENGTH; y++) {
+        for (int y = 0; y < width; y++) {
             multipleArrowsChuck = multipleArrowsChuck + arrowChunk;
         }
         return multipleArrowsChuck;

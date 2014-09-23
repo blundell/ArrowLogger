@@ -9,9 +9,9 @@ import static org.junit.Assert.assertFalse;
 public class ArrowMessageWrapperTest {
 
     @Test
-    public void testWrap() throws Exception {
-        MessageWrapper wrapper = new ArrowMessageWrapper();
-        List<String> test = wrapper.wrap("test really long message test really long message test really long message test really long messagetest really long message test really long message");
+    public void testSimpleWrap() throws Exception {
+        MessageWrapper wrapper = new ArrowMessageWrapper(7, 5);
+        List<String> test = wrapper.wrap("test test test test test");
 
         new DebugPrinter().print(test);
 

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.blundell.logger.arrow.ArrowLog;
+import com.blundell.logger.arrow.ProArrowLog;
 
 public class DemoActivity extends Activity {
 
@@ -22,6 +23,12 @@ public class DemoActivity extends Activity {
                 ArrowLog.log(msg);
             }
         });
-
+        findViewById(R.id.print_pro_log_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String msg = editText.getText().toString();
+                ProArrowLog.pal().tag("ArrowLog").width(3).height(10).log(msg).now();
+            }
+        });
     }
 }

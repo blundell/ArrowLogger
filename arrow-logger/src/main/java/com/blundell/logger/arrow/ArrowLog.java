@@ -9,7 +9,9 @@ public class ArrowLog {
     }
 
     public static void log(String tag, String msg) {
-        AlertPrinter alertPrinter = new AlertPrinter(new ArrowMessageWrapper(), new LogCatPrinter(tag));
+        MessageWrapper messageWrapper = ArrowMessageWrapper.newInstance();
+        Printer printer = new LogCatPrinter(tag);
+        AlertPrinter alertPrinter = new AlertPrinter(messageWrapper, printer);
         alertPrinter.print(msg);
     }
 
