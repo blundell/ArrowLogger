@@ -5,8 +5,6 @@ import java.util.List;
 
 class ArrowMessageWrapper implements MessageWrapper {
 
-    // TODO add multiple arrows along the row
-
     private static final String LINE_START = "`";
     private static final String L = "\\";
     private static final String R = "/";
