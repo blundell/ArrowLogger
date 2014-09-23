@@ -29,9 +29,8 @@ ArrowLog.log("Test");
 or for more control
 
 ```java
-               ProArrowLog
-                        .pal()
-                        .level(Level.E)
+               ProArrowLog.pal()
+                        .level(Level.D)
                         .tag("ArrowLog")
                         .width(7)
                         .height(5)
