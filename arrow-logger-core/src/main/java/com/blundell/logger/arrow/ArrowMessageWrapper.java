@@ -36,7 +36,7 @@ class ArrowMessageWrapper implements MessageWrapper {
     public List<String> wrap(String msg) {
         List<String> logs = new ArrayList<String>(height * 2 + 1);
 
-        String maxSpace = calculateMaxSpaceInArrowHead();
+        String maxSpace = calculateMaxSpaceInArrow();
 
         logs.addAll(calculateTopArrows(maxSpace));
         logs.addAll(calculateBorder(msg));
@@ -47,17 +47,7 @@ class ArrowMessageWrapper implements MessageWrapper {
         return logs;
     }
 
-    private List<String> calculateBorder(String msg) {
-        List<String> logs = new ArrayList<String>();
-        StringBuilder border = new StringBuilder(msg.length());
-        for (int i = 0; i < msg.length(); i++) {
-            border.append('=');
-        }
-        logs.add(LINE_START + border.toString());
-        return logs;
-    }
-
-    private String calculateMaxSpaceInArrowHead() {
+    private String calculateMaxSpaceInArrow() {
         String maxSpace = "";
         for (int i = 0; i < height; i++) {
             maxSpace = maxSpace + SPACER;
@@ -76,6 +66,24 @@ class ArrowMessageWrapper implements MessageWrapper {
             String multipleArrowsChuck = getArrowChunksForRow(arrowChunk);
             logs.add(LINE_START + multipleArrowsChuck);
         }
+        return logs;
+    }
+
+    private String getArrowChunksForRow(String arrowChunk) {
+        String multipleArrowsChuck = arrowChunk;
+        for (int y = 0; y < width; y++) {
+            multipleArrowsChuck = multipleArrowsChuck + arrowChunk;
+        }
+        return multipleArrowsChuck;
+    }
+
+    private List<String> calculateBorder(String msg) {
+        List<String> logs = new ArrayList<String>();
+        StringBuilder border = new StringBuilder(msg.length());
+        for (int i = 0; i < msg.length(); i++) {
+            border.append('=');
+        }
+        logs.add(LINE_START + border.toString());
         return logs;
     }
 
@@ -103,14 +111,6 @@ class ArrowMessageWrapper implements MessageWrapper {
             bottomMiddleSpace = bottomMiddleSpace + SPACER + SPACER;
         }
         return logs;
-    }
-
-    private String getArrowChunksForRow(String arrowChunk) {
-        String multipleArrowsChuck = arrowChunk;
-        for (int y = 0; y < width; y++) {
-            multipleArrowsChuck = multipleArrowsChuck + arrowChunk;
-        }
-        return multipleArrowsChuck;
     }
 
 }
