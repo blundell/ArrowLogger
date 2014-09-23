@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.blundell.logger.arrow.ArrowLog;
+import com.blundell.logger.arrow.Level;
 import com.blundell.logger.arrow.ProArrowLog;
 
 public class DemoActivity extends Activity {
@@ -43,7 +44,14 @@ public class DemoActivity extends Activity {
                 String msg = editText.getText().toString();
                 int chosenWidth = Integer.valueOf(widthEditText.getText().toString());
                 int chosenHeight = Integer.valueOf(heightEditText.getText().toString());
-                ProArrowLog.pal().tag("ArrowLog").width(chosenWidth).height(chosenHeight).log(msg).now();
+                ProArrowLog
+                        .pal()
+                        .level(Level.E)
+                        .tag("ArrowLog")
+                        .width(chosenWidth)
+                        .height(chosenHeight)
+                        .log(msg)
+                        .now();
             }
         });
     }
