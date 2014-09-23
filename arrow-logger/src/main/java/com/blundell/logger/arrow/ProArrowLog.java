@@ -2,10 +2,13 @@ package com.blundell.logger.arrow;
 
 public class ProArrowLog {
 
+    private static final String DEFAULT_TAG = "ProArrowLog";
+    private static final int DEFAULT_DIMEN = -1;
+
     private String msg;
-    private String tag = "ProArrowLog";
-    private int width = -1;
-    private int height = -1;
+    private String tag = DEFAULT_TAG;
+    private int width = DEFAULT_DIMEN;
+    private int height = DEFAULT_DIMEN;
 
     public static ProArrowLog pal() {
         return new ProArrowLog();
@@ -32,6 +35,9 @@ public class ProArrowLog {
     }
 
     public void now() {
+        if (msg == null) {
+            throw new IllegalStateException("msg is null, call log(String msg). I thought you were pr0 d3v?");
+        }
         log(tag, msg, width, height);
     }
 
