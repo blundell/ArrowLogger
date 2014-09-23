@@ -4,7 +4,7 @@ ArrowLogger
 
 A logger for printing things like:
 
-```java
+```
 2228-2228/com.blundell.demo D/ArrowLog﹕ ` \        /  \        /  \        /  \        /  \        /  \        /  \        /  \        /
 2228-2228/com.blundell.demo D/ArrowLog﹕ `  \      /    \      /    \      /    \      /    \      /    \      /    \      /    \      /
 2228-2228/com.blundell.demo D/ArrowLog﹕ `   \    /      \    /      \    /      \    /      \    /      \    /      \    /      \    /
