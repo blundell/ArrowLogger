@@ -1,5 +1,11 @@
 apply plugin: 'com.android.library'
 
+ext {
+    PUBLISH_GROUP_ID = 'com.blundell'
+    PUBLISH_ARTIFACT_ID = 'arrow-logger'
+    PUBLISH_VERSION = '1.0.0'
+}
+
 android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
@@ -23,3 +29,5 @@ dependencies {
     compile project(':arrow-logger-core')
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
+
+apply from: 'release.gradle'
