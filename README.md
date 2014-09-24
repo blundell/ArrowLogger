@@ -54,7 +54,7 @@ repositories {
 
 ````groovy
 dependencies {
-    compile 'com.novoda:notils:COMING-SOON'
+    compile 'com.blundell:arrow-logger:COMING-SOON'
 }
 ````
 
