@@ -54,7 +54,7 @@ repositories {
 
 ````groovy
 dependencies {
-    compile 'com.blundell:arrow-logger:COMING-SOON'
+    compile 'com.blundell:arrow-logger:1.0.0'
 }
 ````
 
