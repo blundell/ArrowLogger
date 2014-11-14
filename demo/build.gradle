@@ -21,5 +21,6 @@ android {
 
 dependencies {
     compile project(':arrow-logger')
+//    compile 'com.blundell:arrow-logger:1.0.0' // TODO check this inclusion in JCenter
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
