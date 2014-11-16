@@ -25,7 +25,7 @@ A logger for printing things like:
 2228-2228/com.blundell.demo D/ArrowLog﹕ ` /        \  /        \  /        \  /        \  /        \  /        \  /        \  /        \
 ```
 
-###Useage
+###Usage
 
 ```java
 ArrowLog.log("You forgot to set the library api key!!");
