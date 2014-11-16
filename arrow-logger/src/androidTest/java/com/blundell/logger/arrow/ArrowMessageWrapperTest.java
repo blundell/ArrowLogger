@@ -2,13 +2,10 @@ package com.blundell.logger.arrow;
 
 import java.util.List;
 
-import org.junit.Test;
+import junit.framework.TestCase;
 
-import static org.junit.Assert.assertFalse;
+public class ArrowMessageWrapperTest extends TestCase {
 
-public class ArrowMessageWrapperTest {
-
-    @Test
     public void testSimpleWrap() throws Exception {
         MessageWrapper wrapper = new ArrowMessageWrapper(7, 5);
         List<String> test = wrapper.wrap("test sentence is this long");
