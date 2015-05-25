@@ -1,9 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'bintray-release'
 
-ext {
-    PUBLISH_GROUP_ID = 'com.blundell'
-    PUBLISH_ARTIFACT_ID = 'arrow-logger'
-    PUBLISH_VERSION = '1.1.0'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.2.10'
+    }
 }
 
 android {
@@ -16,4 +20,11 @@ android {
     }
 }
 
-apply from: 'release.gradle'
+publish {
+    userOrg = 'blundell'
+    groupId = 'com.blundell'
+    artifactId = 'arrow-logger'
+    publishVersion = '1.2.0'
+    description = 'ArrowLogger allows you to manicly shake your hands infront of your users face and be like "Helllooo you missed this!".'
+    website = 'https://github.com/blundell/ArrowLogger'
+}
