@@ -7,15 +7,12 @@ ext {
 }
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.0"
+    compileSdkVersion 22
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.blundell.logger.arrow"
         minSdkVersion 8
-        targetSdkVersion 21
-        versionCode 1
-        versionName "1.1.0"
+        targetSdkVersion 22
     }
 }
 
